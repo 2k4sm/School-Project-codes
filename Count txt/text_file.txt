@@ -1,0 +1,1 @@
+this is a text file and this is being used for counting words using a python script using file handling.
