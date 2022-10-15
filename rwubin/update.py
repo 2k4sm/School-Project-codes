@@ -1,60 +1,74 @@
+
+"""
+"Import the pickle module for using dump and load functions."
+This is a python program which uses functions to read a binary file or if (not exist creates one for writing.) then reads fom it.
+
+Read:
+    *opens the binary file.
+    *access the file and decodes it to text format.
+    *iterates through it and prints the text in the defined order.
+Write:
+    *opens the binary file.
+    *takes the recieves the text to write and encodes it to binary.
+    *then writes the text as binary code in the file.
+Update:
+    *opens the binary file.
+    *takes the "text to search for and its type(num/txt)."
+    *iterates through the file and returns the changes the text if found
+        else update unsucessful text not found in the file.
+"""
+"""
+function for writing onto the binary file.Cursor starts from the end.
+"""
 import pickle
-# a function to create/open a binary file and write content to it.
 def write_bin():
-    fo = open("binary.dat","wb+")
-    # number of file entry as a user input.
-    ent = int(input("How many datas to store?: "))
-    i = 0
-    # loops through to get  userinput and dumps it in the binary file as a list.
+    fo = open("./binary.dat","wb+")
+    lines = int(input("Number of records to enter:"))
     arr = []
-    while i < ent :
-        a = input("Name: " )
-        b = int(input("Roll.no: "))
-        c = int(input("Marks: "))
-        dat = [a,b,c]
+    i = 0
+    while i<lines:
+        name = str(input("Enter Name:"))
+        roll = str(input("Enter Roll:"))
+        mark = str(input("Enter Marks:"))
+        dat = [name,roll,mark]
         arr.append(dat)
         i+=1
     pickle.dump(arr,fo)
     fo.close()
-# function to read the content of a binary file.
+"""
+function for reading the existing binary file.Cursor starts from the begenning.
+"""
+
 def read_bin():
-    fo = open("binary.dat","rb+")
-    # while true loops through and tries to load the file content from the binary file unless a exception is encountered.
-    while True: 
-        try:
-            x = pickle.load(fo)
-            for i in x:
-                t = True
-                # while true loops through the file content and prints the file content in the specified format.
-                while t:
-                    name = i[0]
-                    roll = i[1]
-                    marks = i[2]
-                    print(f"Name of candidate: {name}\nRoll.no of candidate:{roll}\nMarks of candidate: {marks}")
-                    t =False
-            # if exception is encountered breaks out of the loop and stops the function.
-        except EOFError:
-            break
+    fo = open("./binary.dat","rb+")
+    file = pickle.load(fo)
+    print("\nThe records are:")
+
+    for i in file:
+        name = i[0]
+        roll = i[1]
+        mark = i[2]
+        print(f"\nName:{name}\nRoll:{roll}\nMark:{mark}\n")
     fo.close()
-# function to search the desired content of a file.
+
+"""
+function to update a record from the records.Cursor starts from the begenning.
+"""
 def update_bin():
-    old = input("Enter the old data to change:")
-    new = input("Enter the new  data to update:")
-    fo = open("binary.dat","ab+")
-    while True:
-        try:
-            x = pickle.load(fo)
-            # changes the old data with the new
-            for i in x:
-                for j in i:
-                    if j == old:
-                        #j = new
-                        index = i.index(j)
-                        i[index] = new
-            pickle.dump(x,fo)
-        except EOFError:
-            break
+    fo = open("./binary.dat","rb+")
+    fo.seek(0)
+    file = pickle.load(fo)
+    wupd = str(input("Enter What To Update:"))
+    for i in file:
+        for j in i:
+            if j == wupd:
+                upd = str(input("Enter Update:"))
+                index = i.index(j)
+                i[index] = upd
+    fo.seek(0)
+    pickle.dump(file,fo)
     fo.close()
+
 
 write_bin()
 read_bin()
