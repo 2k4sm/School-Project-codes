@@ -36,6 +36,7 @@ def read():
         for j in i:
             print(j,end=',')
         print()
+    file.close()
 
 def append():
     # appending  into existing csv files.
@@ -66,6 +67,7 @@ def scan():
     for i in reader:
         if ino == i[0]:
             print("The Searched column is:",i)
+    file.close
             
 
 #Driver Code
