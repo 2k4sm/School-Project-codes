@@ -1,0 +1,3 @@
+Lord Of The Rings,J.R.R Tolkein,55,$300
+CODE,Charles Petzold,57,$350
+Cosmos,Carl Sagan,52,$380

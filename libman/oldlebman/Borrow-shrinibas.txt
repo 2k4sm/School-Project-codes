@@ -1,0 +1,7 @@
+               Library Management System  
+                   Borrowed By: shrinibas mahanta
+    Date: 2022-12-16    Time:23:55:03.893083
+
+S.N. 		 Bookname 	      Authorname 
+1. 		Lord Of The Rings		  J.R.R Tolkein
+2. 		CODE		              Charles Petzold

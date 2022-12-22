@@ -1,0 +1,8 @@
+                Library Management System 
+                   Returned By: shrinibas
+    Date: 2022-12-17    Time:00:10:08.396120
+
+S.N.		Bookname		Cost
+1		Lord Of The Rings		$300
+2		CODE		$350
+					Total: $650.0
