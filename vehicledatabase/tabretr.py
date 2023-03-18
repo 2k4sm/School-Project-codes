@@ -36,5 +36,4 @@ def tableretr():
         print()
     except:
         print("Error Occured: Table does not exist.")
-
-tableretr()
+        con.close()
