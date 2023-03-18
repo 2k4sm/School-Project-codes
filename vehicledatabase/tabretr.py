@@ -18,7 +18,6 @@ def tableretr():
     try:
 
         cursor.execute(descquerry)
-
         descquerry = cursor.fetchall()
 
         for i in descquerry:
